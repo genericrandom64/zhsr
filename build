@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ -z $1 ]]; then
+file="test"
+else
+file=$1
+fi
+
+g++ src/$file.cc -lallegro -lallegro_main -g3 -o "zhsr" &> `whoami`err.cc
+declare -i EXIT_CODE=$?
+
+if [[ "$(whoami)" == "generic" ]]; then
+cat `whoami`err.cc
+fi
